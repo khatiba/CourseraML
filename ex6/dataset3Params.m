@@ -23,10 +23,31 @@ sigma = 0.3;
 %        mean(double(predictions ~= yval))
 %
 
+test_vals = [0.01 0.1 1 10 100 0.03 0.3 3 30 300];
 
+% lowest_cv_err = Inf;
+% best_C = C;
+% best_sigma = sigma;
 
+% for test_C = test_vals
+%   for test_sigma = test_vals
+%     [model] = svmTrain(X, y, test_C, @(x1, x2) gaussianKernel(x1, x2, test_sigma));
+%     predictions = svmPredict(model, Xval);
+%     cv_err = mean(double(predictions ~= yval))
+%     if cv_err < lowest_cv_err
+%       lowest_cv_err = cv_err;
+%       best_C = test_C;
+%       best_sigma = test_sigma;
+%     end
+%   end
+% end
 
+% run the above to search for these parameters
+best_C = 1;
+best_sigma = 0.1;
 
+C = best_C;
+sigma = best_sigma;
 
 
 % =========================================================================
